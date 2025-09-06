@@ -1,0 +1,14 @@
+What file format is used for this binary? And what architecture is it compiled for?
+The file format is ELF64 (see "file format elf64-x86-64").
+The architecture is x86-64 (see "architecture: i386:x86-64").
+
+What are some of the names of segment/sections you find?
+Some section names are: .interp, .note.gnu.property, .note.gnu.build-id, .note.ABI-tag
+
+What segment/section contains main (the function) and what is the address of main? (It should be the same as what you saw in gdb)
+The main function is in the .text section.
+The address of main is 0x0000000000001209
+
+Do you see the stack segment anywhere? What about the heap? Explain.
+No, The stack is managed by the operating system at runtime, not stored in the binary.
+The heap is also not shown as a segment or section in the binary. Heap memory is dynamically allocated at runtime, so it does not appear in the binary's static segments.

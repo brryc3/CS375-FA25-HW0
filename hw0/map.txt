@@ -1,0 +1,24 @@
+1. Use objdump with the -D flag on the map executable. Which of the addresses from the output of running ./map are defined in the executable, and which segment/section is each defined in?
+The addresses of main and recur are defined in the executable and are found in the .text section
+The address of the static variable 'stuff' is defined in the .data section 
+The stack and heap addresses printed by ./map are not defined in the executable; they are assigned at runtime.
+
+2. Make a list of the important segments, and what they are used for (look up their names on the Internet if you don’t know).
+.text: Contains executable code (functions).
+.data: Contains initialized global/static variables.
+.plt/.got: Used for dynamic linking and function calls to shared libraries.
+.bss: Contains uninitialized global/static variables.
+.comment, .debug_*: Used for debugging and compiler information.
+.rodata: Contains read-only data (like string literals).
+
+3. What direction is the stack growing in?
+The stack grows downward. 
+
+4. How large is the stack frame for each recursive call?
+48 bytes.
+
+5. Where is the heap? What direction is it growing in?
+The heap is managed by malloc and starts after the program's data segments. It grows upward.
+
+6. Are the two malloc()ed memory areas contiguous? (e.g. is there any extra space between their addresses?)
+No
